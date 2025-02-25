@@ -13,13 +13,13 @@ export interface MainProps {
   setTasks: Dispatch<SetStateAction<ITask[]>>;
 }
 
-function MainPage({ tasks, setTasks }: MainProps) {
+function MainPage({ tasks, setTasks }: MainProps): React.JSX.Element {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const createTask = useCallback(() => {
     if (!inputRef.current || !inputRef.current.value.trim()) return;
 
-    const newTask = {
+    const newTask: ITask = {
       id: uuidv4(),
       title: inputRef.current.value,
       status: "pending",

@@ -2,12 +2,14 @@ import { ITask } from "../../App";
 import { MainProps } from "../../pages/MainPage/MainPage";
 import styles from "./PendingTasks.module.scss";
 
-function PendingTasks({ tasks, setTasks }: MainProps) {
+function PendingTasks({ tasks, setTasks }: MainProps): React.JSX.Element {
   const pendingTasks = tasks.filter((task: ITask) => task.status === "pending");
 
   const updateTaskStatus = (id: string, status: string) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) => (task.id === id ? { ...task, status } : task))
+    setTasks((prevTasks: ITask[]) =>
+      prevTasks.map((task: ITask) =>
+        task.id === id ? { ...task, status } : task
+      )
     );
   };
 
@@ -15,8 +17,10 @@ function PendingTasks({ tasks, setTasks }: MainProps) {
     <div className={styles.all_tasks_list}>
       <div>
         <h2>Нужно сделать</h2>
+        <br />
+        <hr />
         <ul className={styles.list}>
-          {pendingTasks.map((task) => (
+          {pendingTasks.map((task: ITask) => (
             <div className={styles.task_item} key={task.id}>
               <input
                 type="checkbox"

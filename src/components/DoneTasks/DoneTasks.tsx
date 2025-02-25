@@ -3,11 +3,11 @@ import { MainProps } from "../../pages/MainPage/MainPage";
 import styles from "./DoneTasks.module.scss";
 import cart from "../../public/icons/trash.svg";
 
-function DoneTasks({ tasks, setTasks }: MainProps) {
+function DoneTasks({ tasks, setTasks }: MainProps): React.JSX.Element {
   const doneTasks = tasks.filter((task: ITask) => task.status === "completed");
 
   const deleteDoneTasks = () => {
-    setTasks((prevTasks) =>
+    setTasks((prevTasks: ITask[]) =>
       prevTasks.filter((task: ITask) => task.status !== "completed")
     );
   };
@@ -16,15 +16,17 @@ function DoneTasks({ tasks, setTasks }: MainProps) {
     <div className={styles.all_tasks_list}>
       <div>
         <h2>Сделано</h2>
+        <br />
+        <hr />
         <ul className={styles.list}>
-          {doneTasks.map((task) => (
+          {doneTasks.map((task: ITask) => (
             <li key={task.id}>{task.title}</li>
           ))}
         </ul>
       </div>
       <div className={styles.tasks_footer}>
         Сделано задач: {doneTasks.length} / {tasks.length}
-        <button onClick={deleteDoneTasks}>
+        <button onClick={deleteDoneTasks} data-testid="delete_button">
           <img src={cart} alt="cart icon" />
         </button>
       </div>
