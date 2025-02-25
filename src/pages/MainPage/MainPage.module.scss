@@ -1,0 +1,31 @@
+.main_page {
+  border: 1px solid var(--border);
+  width: 80%;
+  height: 80%;
+  border-radius: 8px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  overflow: hidden;
+
+  h1 {
+    color: var(--white);
+    font-family: var(--font-family-main);
+    font-size: 75px;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .task_windows {
+    display: flex;
+    gap: 10px;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .task_windows > * {
+    flex: 1;
+    min-width: 0;
+  }
+}

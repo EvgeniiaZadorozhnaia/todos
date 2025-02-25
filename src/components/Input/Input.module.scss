@@ -1,0 +1,37 @@
+.inputWrapper {
+  position: relative;
+  width: 100%;
+
+  .input {
+    font: var(--font-m);
+    color: var(--white);
+    &::placeholder {
+      color: var(--placeholder);
+    }
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    &:focus {
+      outline: none;
+    }
+    width: 100%;
+    background: var(--form-bg-color);
+  }
+
+  .iconButton {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--button-color);
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+  }
+}
