@@ -4,8 +4,6 @@ import styles from "./MainPage.module.scss";
 import { ITask } from "../../App";
 import { v4 as uuidv4 } from "uuid";
 import AllTasks from "../../components/AllTasks/AllTasks";
-import PendingTasks from "../../components/PendingTasks/PendingTasks";
-import DoneTasks from "../../components/DoneTasks/DoneTasks";
 import "animate.css";
 
 export interface MainProps {
@@ -46,9 +44,9 @@ function MainPage({ tasks, setTasks }: MainProps): React.JSX.Element {
         onKeyDown={handleKeyDown}
       />
       <div className={styles.task_windows}>
-        <AllTasks tasks={tasks} />
-        <PendingTasks tasks={tasks} setTasks={setTasks} />
-        <DoneTasks tasks={tasks} setTasks={setTasks} />
+        <AllTasks tasks={tasks} setTasks={setTasks} type="all" />
+        <AllTasks tasks={tasks} setTasks={setTasks} type="pending" />
+        <AllTasks tasks={tasks} setTasks={setTasks} type="completed" />
       </div>
     </div>
   );

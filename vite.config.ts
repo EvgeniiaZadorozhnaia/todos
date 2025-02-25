@@ -8,4 +8,5 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: "./setupTests.ts",
   },
+  base: "/todos/",
 });
